@@ -1,0 +1,19 @@
+languageCode = 'en-us'
+title = 'My new blog, powered by 🐴 Horseman'
+baseURL = "/"
+themesDir = "themes"
+theme = "hugo-winston-theme"
+
+[markup]
+  [markup.goldmark]
+    [markup.goldmark.renderer]
+      unsafe = true
+
+[params]
+  google_analytics_id = ""
+  twitter_handle = "@ceruthedev"
+  showAuthorOnHomepage = false
+  showAuthorOnPosts = false
+  showPostsOnHomepage = true
+  addFrame = true
+  addDot = true

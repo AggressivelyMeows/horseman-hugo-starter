@@ -1,0 +1,16 @@
+{
+  "name": "horseman-blog-starter",
+  "version": "1.0.0",
+  "description": "",
+  "main": "prebuild.js",
+  "scripts": {
+    "dev": "node ./prebuild.js && hugo server",
+    "build": "node ./prebuild.js && hugo --minify",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^0.27.2"
+  }
+}
