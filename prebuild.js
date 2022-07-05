@@ -9,9 +9,6 @@ const options = {
 
 const process = async () => {
 	const all_posts = await axios.get(`${options.url}/models/posts/objects?key=${options.token}&expand=Author&limit=1000`)
-	console.log(`${options.url}/models/posts/objects?key=${options.token}&expand=Author&limit=1000`)
-
-	console.log(all_posts)
 
 	await fs.promises.mkdir('./data/posts', { recursive: true })
 	await fs.promises.mkdir('./content/posts', { recursive: true })
@@ -25,7 +22,6 @@ const process = async () => {
 ---`)
 
 	all_posts.data.results.map(post => {
-		console.log(post)
 		fs.writeFile(`./data/posts/${post.id}.json`, JSON.stringify(post), () => {})
 
 		const metadata = Object.assign({}, post)
@@ -33,7 +29,11 @@ const process = async () => {
 
 		metadata.slug = replaceAll(post.Title.toLowerCase().replace(/[^a-z0-9]/g, '-'), '--', '-')
 		metadata.date = post.metadata.created_at
+		metadata.Author = post.Author.Name
 
+		metadata.feature_image = post.Image
+
+		metadata.Author = post.Author.Name
 		fs.writeFile(`./content/posts/${post.id}.html`, `${JSON.stringify(metadata)}\n${post.Content}`, () => {})
 	})
 }

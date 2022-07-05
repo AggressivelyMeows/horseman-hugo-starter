@@ -4,7 +4,7 @@
   "description": "",
   "main": "prebuild.js",
   "scripts": {
-    "dev": "node ./prebuild.js && hugo server",
+    "dev": "node ./prebuild.js && hugo server --bind 104.131.2.96 --port 3014 --baseURL http://104.131.2.96:3014/",
     "build": "node ./prebuild.js && hugo --minify",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
