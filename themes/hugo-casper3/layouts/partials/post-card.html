@@ -33,7 +33,9 @@
                     <ul class="author-list">
                         <li class="author-list-item">
                             <div class="author-name-tooltip">{{ .context.Param "author" }}</div>
-                            <a href="#" class="static-avatar author-profile-image">{{- partial "icons/avatar.html" -}}</a>
+                            <a href="#" class="static-avatar author-profile-image">
+                                <img src="{{ .context.Param "author_image" }}"/> 
+                            </a>
                         </li>
                     </ul>
                     <div class="post-card-byline-content">

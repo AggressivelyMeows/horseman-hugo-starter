@@ -34,6 +34,7 @@ const process = async () => {
 		metadata.feature_image = post.Image
 
 		metadata.Author = post.Author.Name
+		metadata.author_image = post.Author.Image
 		fs.writeFile(`./content/posts/${post.id}.html`, `${JSON.stringify(metadata)}\n${post.Content}`, () => {})
 	})
 }
