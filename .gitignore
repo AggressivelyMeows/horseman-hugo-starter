@@ -3,3 +3,5 @@ content/posts/*
 content/authors/*
 data/posts/*
 public/*
+
+config.json
