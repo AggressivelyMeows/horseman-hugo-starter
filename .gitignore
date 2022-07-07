@@ -2,3 +2,4 @@ node_modules
 content/posts/*
 content/authors/*
 data/posts/*
+public/*
