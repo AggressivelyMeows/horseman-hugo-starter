@@ -1,0 +1,2 @@
+{"Name":"Cerulean","Biography":"<p>Hey! My name is Cerulean, im the creator of Horseman!\t\t</p>","Image":"https://cdn.discordapp.com/avatars/190092287722651648/46ac0cb6e05647a8fea73a0ee6266bc0.webp","metadata":{"userID":"lhIGhS2vjjP_","published":true,"created_at":"2022-07-01T23:19:09.720Z","published_at":"2022-07-01T23:19:59.265Z"},"id":"6yQ5dqZURzs_","slug":"cerulean","profile_image":"https://cdn.discordapp.com/avatars/190092287722651648/46ac0cb6e05647a8fea73a0ee6266bc0.webp"}
+<p>Hey! My name is Cerulean, im the creator of Horseman!		</p>

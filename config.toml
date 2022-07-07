@@ -9,6 +9,10 @@ theme = "hugo-casper3"
     [markup.goldmark.renderer]
       unsafe = true
 
+[taxonomies]
+  author = "authors"
+  tag = "tags"
+
 [params]
   google_analytics_id = ""
   twitter_handle = "@ceruthedev"
