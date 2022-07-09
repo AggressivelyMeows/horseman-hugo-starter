@@ -59,7 +59,7 @@ menu:
 	all_posts.data.results.map(post => {
 		console.log(`[HORSEMAN-HUGO] Processing post ${post.Title} (${post.id})`)
 
-		post.Author.slug = replaceAll(post.Author.Name.toLowerCase().replace(/[^a-z0-9]/g, '-'), '--', '-')
+		post.Author.slug = post.Author.Slug || replaceAll(post.Author.Name.toLowerCase().replace(/[^a-z0-9]/g, '-'), '--', '-')
 		all_authors[post.Author.id] = post.Author
 		all_authors[post.Author.id].profile_image = post.Author.Image
 
@@ -73,6 +73,8 @@ menu:
 		metadata.Author = post.Author.Name
 
 		metadata.feature_image = post.Image
+
+		metadata.images = [ post.Image ] // for OpenGraph support, images must be an array
 
 		metadata.Author = post.Author.Name
 		metadata.authors = [ post.Author.slug ]
