@@ -1,6 +1,7 @@
 var axios = require('axios').default;
 const fs = require('fs')
 const replaceAll = require('string.prototype.replaceall');
+const { compile } = require('html-to-text');
 
 let config
 
@@ -61,8 +62,12 @@ menu:
 
 		post.Author.slug = post.Author.Slug || replaceAll(post.Author.Name.toLowerCase().replace(/[^a-z0-9]/g, '-'), '--', '-')
 
+		const convert = compile({
+			wordwrap: 240
+		})
+
 		post.Author.title = post.Author.Name
-		post.Author.description = post.Author.Biography
+		post.Author.description = convert(post.Author.Biography)
 		post.Author.image = post.Author.Image
 
 		all_authors[post.Author.id] = post.Author
