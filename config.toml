@@ -1,23 +1,23 @@
-languageCode = 'en-us'
-title = 'My new blog, powered by 🐴 Horseman'
+languageCode = "en-us"
+title = "My new blog, powered by 🐴 Horseman"
 baseURL = "/"
 themesDir = "themes"
 theme = "hugo-casper3"
 
-[markup]
-  [markup.goldmark]
-    [markup.goldmark.renderer]
-      unsafe = true
+[markup.goldmark.renderer]
+unsafe = true
 
 [taxonomies]
-  author = "authors"
-  tag = "tags"
+author = "authors"
+tag = "tags"
 
 [params]
-  google_analytics_id = ""
-  twitter_handle = "@ceruthedev"
-  showAuthorOnHomepage = false
-  showAuthorOnPosts = false
-  showPostsOnHomepage = true
-  addFrame = true
-  addDot = true
+google_analytics_id = ""
+twitter = "@ceruthedev"
+showAuthorOnHomepage = false
+showAuthorOnPosts = false
+showPostsOnHomepage = true
+addFrame = true
+addDot = true
+SiteName = "🐴 Horseman Blog"
+sitename = "🐴 Horseman Blog"

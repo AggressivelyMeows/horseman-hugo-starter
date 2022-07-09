@@ -1,7 +1,8 @@
-var axios = require('axios').default;
+var axios = require('axios').default
 const fs = require('fs')
-const replaceAll = require('string.prototype.replaceall');
-const { compile } = require('html-to-text');
+const replaceAll = require('string.prototype.replaceall')
+const { compile } = require('html-to-text')
+const TOML = require('@iarna/toml')
 
 let config
 
@@ -15,6 +16,13 @@ try {
 const options = JSON.parse(config)
 
 const process = async () => {
+	console.log('[HORSEMAN-HUGO] Patching Site name into Hugo config...')
+	const site_config = TOML.parse(fs.readFileSync('./config.toml', 'utf8'))
+
+	site_config.params.sitename = options.SITE_NAME // Patch the SiteName parameter into the toml file
+
+	fs.writeFileSync('./config.toml', TOML.stringify(site_config))
+
 	const all_posts = await axios.get(`${options.HORSEMAN_URL}/models/posts/objects?key=${options.API_TOKEN}&expand=Author&limit=10000`)
 
 	console.log('[HORSEMAN-HUGO] Deleting existing content directories...')
@@ -24,7 +32,7 @@ const process = async () => {
 		'./content/authors',
 		'./content/posts',
 	].map(dir => {
-		console.log(fs.existsSync(dir), dir)
+		console.log('does exists:', dir, fs.existsSync(dir))
 		if (fs.existsSync(dir)) {
 			fs.rmSync(dir, { recursive: true, force: true })
 		}
@@ -66,10 +74,9 @@ menu:
 			wordwrap: 240
 		})
 
-		post.Author.title = post.Author.Name
+		post.Author.title = post.Author.Name + ` - ${options.SITE_NAME}`
 		post.Author.description = convert(post.Author.Biography)
 		post.Author.image = post.Author.Image
-		post.Author.images = [ post.Author.Image ] // for OpenGraph support, images must be an array
 
 		all_authors[post.Author.id] = post.Author
 		all_authors[post.Author.id].profile_image = post.Author.Image
