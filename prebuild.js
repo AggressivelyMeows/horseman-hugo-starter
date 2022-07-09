@@ -60,6 +60,11 @@ menu:
 		console.log(`[HORSEMAN-HUGO] Processing post ${post.Title} (${post.id})`)
 
 		post.Author.slug = post.Author.Slug || replaceAll(post.Author.Name.toLowerCase().replace(/[^a-z0-9]/g, '-'), '--', '-')
+
+		post.Author.title = post.Author.Name
+		post.Author.description = post.Author.Bio
+		post.Author.image = post.Author.Image
+
 		all_authors[post.Author.id] = post.Author
 		all_authors[post.Author.id].profile_image = post.Author.Image
 
