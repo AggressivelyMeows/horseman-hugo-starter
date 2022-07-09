@@ -62,7 +62,7 @@ menu:
 		post.Author.slug = post.Author.Slug || replaceAll(post.Author.Name.toLowerCase().replace(/[^a-z0-9]/g, '-'), '--', '-')
 
 		post.Author.title = post.Author.Name
-		post.Author.description = post.Author.Bio
+		post.Author.description = post.Author.Biography
 		post.Author.image = post.Author.Image
 
 		all_authors[post.Author.id] = post.Author
