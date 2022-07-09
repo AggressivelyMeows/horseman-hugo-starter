@@ -69,6 +69,7 @@ menu:
 		post.Author.title = post.Author.Name
 		post.Author.description = convert(post.Author.Biography)
 		post.Author.image = post.Author.Image
+		post.Author.images = [ post.Author.Image ] // for OpenGraph support, images must be an array
 
 		all_authors[post.Author.id] = post.Author
 		all_authors[post.Author.id].profile_image = post.Author.Image
